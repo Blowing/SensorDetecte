@@ -11,4 +11,6 @@ public class Constant {
     public static final String TEMPERATUR = "temperatur";
     public static final String VOICE = "voice";
     public static final String MAGNETIC = "magnetic";
+
+    public static String action = "com.blowing.data";
 }

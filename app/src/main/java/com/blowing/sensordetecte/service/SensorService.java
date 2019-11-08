@@ -26,7 +26,7 @@ public class SensorService extends Service implements SensorEventListener {
     private SensorManager sensorManager;
     private MyMediaRecorder mRecorder;
     private int msgWhat = 0x123;
-    private int refreshTime = SensorManager.SENSOR_DELAY_UI;
+    private int refreshTime = 100;
 
     private float light ;
     private float temperatur;
@@ -139,7 +139,7 @@ public class SensorService extends Service implements SensorEventListener {
             }
 
             // 发送数据给前端展示
-            Intent intent = new Intent();
+            Intent intent = new Intent(Constant.action);
             intent.putExtra(Constant.LIGHT, light);
             intent.putExtra(Constant.VOICE, voice);
             intent.putExtra(Constant.MAGNETIC, magnetic);
@@ -183,7 +183,7 @@ public class SensorService extends Service implements SensorEventListener {
 
                 int batteryL = intent.getIntExtra("level", 0);	  //目前电量
                 int batteryT = intent.getIntExtra("temperature", 0);  //电池温度
-                temperatur = batteryT;
+                temperatur = batteryT/10.0f;
                 Log.i("wujie1", "电量"+batteryL + "---" + "温度"+ batteryT);
             }
         }
