@@ -78,7 +78,7 @@ public class SensorService extends Service implements SensorEventListener {
                 Log.i("wujie", "光照"+ value);
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
-                magnetic = value;
+                magnetic = Math.abs(value);
                 break;
 
         }
